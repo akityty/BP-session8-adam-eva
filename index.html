@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adame and eva</title>
+</head>
+<body>
+<script>
+    let Apple = function (weight) {
+        this.weight = weight;
+        this.getWeight = function () {
+            return this.getWeight;
+        };
+        this.decreace = function () {
+            this.weight -= 1;
+        }
+    };
+    let Human = function (name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.setName = function (name) {
+            this.name = name;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setGender = function (gender) {
+            this.gender = gender;
+        };
+        this.getGender = function () {
+            return this.gender;
+        };
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.isMale = function () {
+            return this.gender === "male";
+        };
+        this.checkApple = function (apple) {
+            return apple.weight > 0;
+        };
+        this.eatApple = function (apple) {
+            if (apple.weight > 0) {
+                apple.decreace();
+                this.weight += 1;
+            } else
+                document.write("táo đã hết không ăn được");
+
+        };
+        this.say = function (string) {
+            document.write(this.name + ": " + string + "<br>" + "<br>");
+        }
+    };
+    let apple = new Apple(5);
+    let adam = new Human("Adam", "male", 80);
+    let eva = new Human("Eva", "female", 60);
+    adam.say("Em xinh quá. làm vợ anh nhé!!!");
+    eva.say("Dạ, nhưng anh có phải đàn ông không?");
+    if (adam.isMale())
+        adam.say("có chứ, thế em có phải là phụ nữ không?");
+    else
+        adam.say("không anh là BD, thế đằng ấy có phải phụ nữ không?");
+    if (eva.isMale())
+        eva.say("không, em là cú có gai, ôi đằng kia có táo cùng ăn nhé!");
+    else
+        eva.say("dạ, em là nữ 100%, ôi đằng kia có táo cùng ăn nhé! ");
+    adam.say("Ừ, làm miếng, em cũng ăn đi cho tăng cân");
+    adam.eatApple(apple);
+    eva.eatApple(apple);
+    eva.say("ôi mới ăn miếng mà em đã tăng cân rồi nè " + eva.getWeight());
+    adam.say("Thế à để anh kiểm tra xem táo còn mấy miếng!");
+    if (adam.checkApple(apple))
+        adam.say(("táo còn " + apple.weight + " miếng"));
+    eva.eatApple(apple);
+    eva.eatApple(apple);
+    eva.eatApple(apple);
+    if (!eva.checkApple(apple))
+        eva.say("Em ăn hết táo rồi");
+    alert(adam.getWeight());
+    adam.eatApple(apple);
+    alert(adam.getWeight());
+</script>
+</body>
+</html>
